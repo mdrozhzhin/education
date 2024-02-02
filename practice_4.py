@@ -14,3 +14,6 @@ l6 = []
 for i in l1:
     l6.append(i % 2)
 print(l6)
+
+for i in range(1, 10):
+    print(float(i))

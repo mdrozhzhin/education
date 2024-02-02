@@ -17,3 +17,6 @@ print(l6)
 
 for i in range(1, 10):
     print(float(i))
+
+test = input()
+print(test)

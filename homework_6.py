@@ -1,7 +1,7 @@
 # Генерируем одномерный массив
 import random
 
-massive = [i for i in range(0, 50)]
+massive = [i for i in range(0, 20)]
 
 # Выведем массив для наглядности.
 print(massive)

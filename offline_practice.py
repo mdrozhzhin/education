@@ -97,6 +97,7 @@ def print_table(start_x, end_x, dx, eps):
         x += dx
     print("===================================================")
 
+
 start_x = float(input("Введите начальное значение X: "))
 end_x = float(input("Введите конечное значение X: "))
 dx = float(input("Введите шаг dx: "))

@@ -31,3 +31,5 @@ car1.display_info()
 print("Общее количество проданных машин:", Car.total_cars_sold)
 
 del car1
+
+

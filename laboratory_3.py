@@ -31,13 +31,11 @@ matrix = np.array([[1, 2, 3],
 
 C = int(input('Введите искомое среднеарифметическое: '))
 
-# 1. Найти количество строк, среднеарифметическое элементов которых меньше заданной величины C
 count_rows = counting_rows(matrix, C)
 print("Количество строк, среднеарифметическое элементов которых меньше {}: {}".format(C, count_rows))
 
-# 2. В каждом столбце найти элементы, у которых произведение делителей кратно номеру столбца
 divisible_elements = find_divisible_elements(matrix)
-print(divisible_elements)
+
 if divisible_elements:
     for column, elements in divisible_elements:
         print("В столбце {} найдены элементы: {}".format(column, elements))

@@ -39,7 +39,7 @@ def remove_spaces_around_brackets(text):
 
 
 def main():
-    text = "( Вася) пошёл в школу, но (его ) сбила (  машина  )."
+    text = "( Вася       ) пошёл в школу, но ( ушёл   ) в (парк      ) и (прогулял  ) (     уроки  )."
 
     modified_text = remove_spaces_around_brackets(text)
     print("Исходный текст с удаленными пробелами вокруг скобок:")

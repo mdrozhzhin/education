@@ -10,7 +10,7 @@ def max_value(a, b):
         print('Ops. Entered values equal each other.')
 
 
-result = max_value(2, 1)
+result = max_value(3, 10)
 print(f'The biggest value is {result}.')
 
 
@@ -32,4 +32,4 @@ def nth_term_of_series(n):
 
 n = 6
 result = nth_term_of_series(n)
-print(f"The {n}-th term of the series is: {result}")
+print(f"The {n}-th term of the series is: {result:0.1f}")

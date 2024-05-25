@@ -1,0 +1,54 @@
+CREATE TABLE employees (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    surname VARCHAR(255) NOT NULL,
+    birth_date DATE NOT NULL,
+    position VARCHAR(255) NOT NULL,
+    department VARCHAR(255) NOT NULL,
+    salary NUMERIC NOT NULL
+);
+
+CREATE TABLE accounts (
+    id SERIAL PRIMARY KEY,
+    employee_id INTEGER NOT NULL,
+    account_number VARCHAR(20) NOT NULL,
+    balance NUMERIC NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+    FOREIGN KEY (employee_id) REFERENCES employees(id)
+);
+
+CREATE USER hr_user WITH PASSWORD 'hr_password';
+CREATE USER admin_user WITH PASSWORD 'admin_password';
+CREATE USER accountant_user WITH PASSWORD 'accountant_password';
+
+GRANT SELECT ON TABLE employees TO hr_user;
+GRANT ALL PRIVILEGES ON DATABASE company_database TO admin_user;
+GRANT SELECT, INSERT ON TABLE accounts TO accountant_user;
+
+-- Проверка прав для hr_user (выполняется под подключением hr_user)
+-- SELECT * FROM employees;
+
+-- Проверка прав для admin_user (выполняется под подключением admin_user)
+SELECT * FROM employees;
+SELECT * FROM accounts;
+-- INSERT INTO accounts (employee_id, account_number, balance) VALUES (1, '1234567890', 1000.00);
+-- UPDATE employees SET salary = salary * 1.1 WHERE id = 1;
+-- DELETE FROM accounts WHERE id = 1;
+
+-- Проверка прав для accountant_user (выполняется под подключением accountant_user)
+-- SELECT * FROM accounts;
+-- INSERT INTO accounts (employee_id, account_number, balance) VALUES (1, '1234567890', 1000.00);
+
+-- Задание 6: Проверка запретов для hr_user (выполняется под подключением hr_user)
+-- INSERT INTO employees (name, surname, birth_date, position, department, salary)
+-- VALUES ('Test', 'User', '1990-01-01', 'Test Position', 'Test Department', 50000.00);
+-- Ожидаемая ошибка: ERROR: permission denied for table employees
+
+-- Задание 6: Проверка запретов для accountant_user (выполняется под подключением accountant_user)
+-- DELETE FROM accounts WHERE id = 1;
+-- Ожидаемая ошибка: ERROR: permission denied for table accounts
+
+-- DROP USER hr_user;
+-- DROP USER admin_user;
+-- DROP USER accountant_user;
+-- DROP DATABASE PR_25_ВашаФамилия;

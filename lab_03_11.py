@@ -190,7 +190,7 @@ def calculate_compression_ratio(original_file, compressed_file):
 
 # Example usage
 if __name__ == "__main__":
-    text1 = "abababababababababababababababababababababababababababababababababab"
+    text1 = "aabb"
     text2 = "this is an example for huffman and lempel-ziv encoding, which demonstrates varied character distribution."
 
     with open("text1.txt", "w") as f:
